@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>تحميل الفيديوهات - من جميع المواقع</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-download"></i> محمل الفيديوهات الشامل</h1>
+            <p>حمّل فيديوهات من يوتيوب، تيك توك، فيسبوك، انستقرام، وأكثر من 1000 موقع</p>
+        </header>
+
+        <div class="input-section">
+            <div class="url-input-wrapper">
+                <i class="fas fa-link"></i>
+                <input type="url" id="urlInput" placeholder="ألصق رابط الفيديو هنا...">
+                <button id="fetchBtn" class="btn-primary">
+                    <i class="fas fa-search"></i> جلب المعلومات
+                </button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>جاري جلب معلومات الفيديو...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <div id="videoInfo" class="video-info hidden">
+            <div class="video-preview">
+                <img id="thumbnail" src="" alt="صورة مصغرة">
+                <div class="video-details">
+                    <h3 id="title"></h3>
+                    <p><i class="fas fa-user"></i> <span id="uploader"></span></p>
+                    <p><i class="fas fa-clock"></i> <span id="duration"></span></p>
+                </div>
+            </div>
+
+            <div class="download-options">
+                <h3><i class="fas fa-cog"></i> خيارات التحميل</h3>
+                
+                <div class="option-group">
+                    <label><i class="fas fa-file-video"></i> نوع التحميل:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="outputType" value="video" checked>
+                            <span>فيديو</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="outputType" value="mp3">
+                            <span>صوت فقط (MP3)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="option-group info-box">
+                    <p class="info-text">
+                        <i class="fas fa-info-circle"></i> 
+                        سيتم عرض الروابط المباشرة للتحميل. اضغط على الرابط بزر الفأرة الأيمن واختر "حفظ الرابط باسم" للتحميل.
+                    </p>
+                </div>
+
+                <button id="downloadBtn" class="btn-success">
+                    <i class="fas fa-download"></i> جلب روابط التحميل
+                </button>
+            </div>
+        </div>
+
+        <div id="downloadProgress" class="download-progress hidden">
+            <div id="progressContent">
+                <div class="loading-spinner">
+                    <div class="spinner-small"></div>
+                    <p>جاري جلب الروابط المباشرة...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="supported-sites">
+            <h4><i class="fas fa-globe"></i> المواقع المدعومة:</h4>
+            <div class="sites-grid">
+                <span><i class="fab fa-youtube"></i> YouTube</span>
+                <span><i class="fab fa-tiktok"></i> TikTok</span>
+                <span><i class="fab fa-facebook"></i> Facebook</span>
+                <span><i class="fab fa-instagram"></i> Instagram</span>
+                <span><i class="fab fa-twitter"></i> Twitter/X</span>
+                <span><i class="fab fa-vimeo"></i> Vimeo</span>
+                <span><i class="fab fa-dailymotion"></i> Dailymotion</span>
+                <span><i class="fas fa-chalkboard"></i> Udemy</span>
+                <span><i class="fas fa-graduation-cap"></i> Coursera</span>
+                <span><i class="fab fa-twitch"></i> Twitch</span>
+                <span><i class="fab fa-reddit"></i> Reddit</span>
+                <span><i class="fas fa-plus"></i> 1000+ موقع</span>
+            </div>
+        </div>
+
+        <footer>
+            <p><i class="fas fa-exclamation-triangle"></i> تنبيه: هذا الموقع لتحميل المحتوى المسموح به فقط. يتحمل المستخدم المسؤولية القانونية كاملة.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
